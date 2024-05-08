@@ -17,7 +17,7 @@ class Login extends CI_Controller {
     $password = $this->input->post('password');
 
     $user = $this->user_model->login($mobile, $password);
-
+var_dump($user);
     if ($user) {
         // Set user session data
         $this->session->set_userdata('user_id', $user['id']); // Store user ID in session

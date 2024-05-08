@@ -16,19 +16,22 @@ class Voter extends CI_Controller {
         
         $booth_no = $this->input->post('booth_no');
         $serial_no = $this->input->post('serial_no');
-        $userid = $this->session->userdata('id');
+        $userid = $this->session->userdata('user_id');
         // Call model method to insert data
         $result = $this->Voter_model->insert_voter($userid,$booth_no, $serial_no);
 
         if ($result) {
             // Data inserted successfully
         //   redirect("Voter/viewdata");
-        $this->load->view('voter_table');
+          $data['voter_data'] = $this->Voter_model->get_all_voters();
+       
+        $this->load->view('voter_table', $data);
         } else {
             // Failed to insert data
             echo "Failed to insert data.";
         }
     }
+   
  
 }
 ?>
