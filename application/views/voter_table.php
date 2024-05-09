@@ -75,14 +75,19 @@
             var cells = rows[i].getElementsByTagName("td");
             var display = true;
 
-            var userId = cells[0].textContent.toUpperCase();
-            var booth = cells[1].textContent.toUpperCase();
+            // Check if cells array contains expected number of elements
+            if (cells.length >= 2) {
+                var userId = cells[0].textContent.toUpperCase();
+                var booth = cells[1].textContent.toUpperCase();
 
-            if (inputUserId && userId.indexOf(inputUserId) === -1) {
-                display = false;
-            }
-            if (inputBooth && booth.indexOf(inputBooth) === -1) {
-                display = false;
+                if (inputUserId && userId.indexOf(inputUserId) === -1) {
+                    display = false;
+                }
+                if (inputBooth && booth.indexOf(inputBooth) === -1) {
+                    display = false;
+                }
+            } else {
+                display = false; // If cells array doesn't contain enough elements, hide the row
             }
 
             rows[i].style.display = display ? "" : "none";
@@ -95,6 +100,7 @@
         filterTable();
     }
     </script>
+
 
 </body>
 

@@ -31,6 +31,11 @@ class Voter extends CI_Controller {
             echo "Failed to insert data.";
         }
     }
+    public function viewdata(){
+          $data['voter_data'] = $this->Voter_model->get_all_voters();
+       
+        $this->load->view('voter_table', $data);
+    }
    
  
 }
