@@ -22,7 +22,7 @@ var_dump($user);
         // Set user session data
         $this->session->set_userdata('user_id', $user['id']); // Store user ID in session
         $this->session->set_userdata('username', $user['name']);
-        redirect('Voter/index'); 
+        redirect('Voter'); 
     } else {
         // Show login error message
         $data['error_message'] = 'Invalid mobile number or password';
