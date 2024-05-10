@@ -48,7 +48,7 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
-                                    Remember Me venky
+                                    Remember Me
                                 </label>
                                 <?php if($this->session->userdata('error')) { ?>
                                 <p class="text-danger"><?=$this->session->userdata('error')?></p>
